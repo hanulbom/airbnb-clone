@@ -7,7 +7,11 @@ cloning Airbnb with Python, Django, Tailwind and more..
 ### Pipenv
 
 ```bash
-pipenv install --python $(which python3.7)
+$ brew install pipenv
+```
+
+```bash
+$ pipenv install --python $(which python3.7)
 ```
 
 ### Pillow Prerequisites
