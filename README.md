@@ -2,12 +2,24 @@
 
 cloning Airbnb with Python, Django, Tailwind and more.. 🇰🇷🥰🐍
 
-# Installation
+## Installation
 
-## Pipenv
+### Pipenv
 
+```bash
 pipenv install --python \$(which python3.7)
+```
 
-## Pillow Prerequisites
+### Pillow Prerequisites
 
+```bach
 https://pillow.readthedocs.io/en/stable/installation.html
+```
+
+### Initialize
+
+```bash
+(airbnb_clone) python manage.py createsuperuser
+(airbnb_clone) python manage.py makemigrations
+(airbnb_clone) python manage.py migrate
+```
