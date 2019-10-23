@@ -16,9 +16,7 @@ $ pipenv install --python $(which python3.7)
 
 ### Pillow Prerequisites
 
-```bach
 https://pillow.readthedocs.io/en/stable/installation.html
-```
 
 ### Initialize
 
