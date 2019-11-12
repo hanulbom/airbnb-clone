@@ -5,7 +5,7 @@ from users.models import User
 
 class Command(BaseCommand):
 
-    help = "This command creates many users"
+    help = "This command creates amenities"
 
     def add_arguments(self, parser):
         parser.add_argument(
