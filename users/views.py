@@ -41,3 +41,6 @@ class SignUpView(FormView):
             login(self.request, user)
         user.verify_email()
         return super().form_valid(form)
+
+def complete_verification(reauest, key):
+    pass
