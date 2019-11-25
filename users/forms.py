@@ -23,7 +23,7 @@ class LoginForm(forms.Form):
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = models.User
-        fields = ("first_name", "last_name", "email", "birthdate")
+        fields = ("first_name", "last_name", "email")
 
     password = forms.CharField(widget=forms.PasswordInput)
     password1 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
@@ -32,7 +32,7 @@ class SignUpForm(forms.ModelForm):
         password = self.cleaned_data.get("password")
         password1 = self.cleaned_data.get("password1")
         if password != password1:
-            raise forms.ValidationError("Password contirmation does not match")
+            raise forms.ValidationError("Password confirmation does not match")
         else:
             return password
 
@@ -43,4 +43,3 @@ class SignUpForm(forms.ModelForm):
         user.username = email
         user.set_password(password)
         user.save()
-
