@@ -4,6 +4,7 @@ from django.views.generic import FormView
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, reverse
 from django.contrib.auth import authenticate, login, logout
+from django.core.files.base import ContentFile
 from . import forms, models
 
 
@@ -126,10 +127,10 @@ def github_callback(request):
 
 
 def kakao_login(request):
-    app_key = os.environ.get("KAKAO_ID")
+    client_id = os.environ.get("KAKAO_ID")
     redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
     return redirect(
-        f"https://kauth.kakao.com/oauth/authorize?client_id={app_key}&redirect_uri={redirect_uri}&response_type=code"
+        f"https://kauth.kakao.com/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code"
     )
 
 
@@ -151,7 +152,7 @@ def kakao_callback(request):
             raise KakaoException()
         access_token = token_json.get("access_token")
         profile_request = requests.get(
-            "https://kapi.kakao.com/v1/user/me",
+            "https://kapi.kakao.com/v2/user/me",
             headers={"Authorization": f"Bearer {access_token}"},
         )
         profile_json = profile_request.json()
@@ -175,6 +176,11 @@ def kakao_callback(request):
             )
             user.set_unusable_password()
             user.save()
+            if profile_image is not None:
+                photo_request = requests.get(profile_image)
+                user.avatar.save(
+                    f"{nickname}-avatar", ContentFile(photo_request.content)
+                )
         login(request, user)
         return redirect(reverse("core:home"))
     except KakaoException:
