@@ -156,28 +156,29 @@ def kakao_callback(request):
             headers={"Authorization": f"Bearer {access_token}"},
         )
         profile_json = profile_request.json()
-        email = profile_json.get("kaccount_email", None)
+        kakao_account = profile_json.get("kakao_account")
+        email = kakao_account.get("email", None)
         if email is None:
             raise KakaoException()
-        properties = profile_json.get("properties")
-        nickname = properties.get("nickname")
-        profile_image = properties.get("profile_image")
+        profile = kakao_account.get("profile")
+        nickname = profile.get("nickname")
+        profile_image_url = profile.get("profile_image_url")
         try:
             user = models.User.objects.get(email=email)
-            if user.login_method != models.User.LOGING_KAKAO:
+            if user.login_method != models.User.LOGIN_KAKAO:
                 raise KakaoException()
         except models.User.DoesNotExist:
             user = models.User.objects.create(
                 email=email,
                 username=email,
                 first_name=nickname,
-                login_method=models.User.LOGING_KAKAO,
+                login_method=models.User.LOGIN_KAKAO,
                 email_verified=True,
             )
             user.set_unusable_password()
             user.save()
-            if profile_image is not None:
-                photo_request = requests.get(profile_image)
+            if profile_image_url is not None:
+                photo_request = requests.get(profile_image_url)
                 user.avatar.save(
                     f"{nickname}-avatar", ContentFile(photo_request.content)
                 )
