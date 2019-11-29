@@ -25,3 +25,17 @@ https://pillow.readthedocs.io/en/stable/installation.html
 (airbnb_clone) python manage.py makemigrations
 (airbnb_clone) python manage.py migrate
 ```
+
+### Tailwind
+
+```bash
+$ install node.js
+$ sudo pip install npm
+$ npm init
+$ npm install gulp gulp-postcss gulp-sass gulp-csso node-sass -D
+$ npm install tailwindcss -D
+$ sudo npm install -g npx
+$ npx tailwind init
+$ npm install autoprefixer -D
+$ npm run css
+```
