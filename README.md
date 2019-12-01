@@ -36,6 +36,6 @@ $ npm install gulp gulp-postcss gulp-sass gulp-csso node-sass -D
 $ npm install tailwindcss -D
 $ sudo npm install -g npx
 $ npx tailwind init
-$ npm install autoprefixer -D
+$ npm i autoprefixer -D
 $ npm run css
 ```

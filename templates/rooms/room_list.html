@@ -1,35 +1,25 @@
-{% extends "base.html" %}
- 
-{% block page_title %}
-    Home
-{% endblock page_title %}
+{% extends "base.html" %} {% block page_title %} Home {% endblock page_title %}
+{% block content %}
 
- {% block content %}
+<div class="container mx-auto">
+  <div
+    class="rounded-xl bg-gray-800 mt-32 mb-24 h-50vh bg-cover bg-center"
+    style="background-image: url(https://a0.muscache.com/4ea/air/v2/pictures/ea6285d9-5352-4447-b13d-b39bfc92dfe5.jpg?t=c:w1131-h343,r:w1131-h343-sfit,e:fjpg-c75);"
+  ></div>
+  <div class="flex flex-wrap">
+  {% for room in rooms %} 
+        {% include 'partials/room_card.html' with room=room %}
+  {% endfor %}
+  </div>
 
-    <div class="container rounded-xl mx-auto bg-gray-800 mt-32 mb-24 h-50vh bg-cover bg-bottom" style="background-image: url(https://images.unsplash.com/photo-1540998145333-e2eef1a9822d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop);">
-
-    </div>
-
-    {% for room in rooms %}
-    <h3>
-        <a href="{% url "rooms:detail" room.pk %}">
-            {{ room.name }} / ${{ room.price }}
-        </a>
-    </h3>
-
-    {% endfor %}
-
-    <h5>
+  <h5>
     {% if page_obj.has_previous %}
-    <a href="?page={{page_obj.previous_page_number}}">Previous</a>        
-    {% endif %}
-    Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+    <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+    {% endif %} Page {{page_obj.number}} of {{page_obj.paginator.num_pages}} 
     {% if page_obj.has_next %}
-    <a href="?page={{page_obj.next_page_number}}">Next</a>     
-    {% endif %}  
-
-    </h5>
-
+    <a href="?page={{page_obj.next_page_number}}">Next</a>
+    {% endif %}
+  </h5>
+</div>
 
 {% endblock content %}
- 
