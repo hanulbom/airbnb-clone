@@ -18,13 +18,16 @@ class AbstractItem(core_models.TimeStampedModel):
 
 
 class RoomType(AbstractItem):
+
+    """ RoomType Model Definition """
+
     class Meta:
         verbose_name = "Room Type"
 
 
 class Amenity(AbstractItem):
 
-    """ Amenity Object Definition """
+    """ Amenity Model Definition """
 
     class Meta:
         verbose_name_plural = "Amenities"
@@ -33,6 +36,8 @@ class Amenity(AbstractItem):
 class Facility(AbstractItem):
 
     """ Facility Model Definition """
+
+    pass
 
     class Meta:
         verbose_name_plural = "Facilities"
@@ -54,7 +59,7 @@ class Photo(core_models.TimeStampedModel):
     file = models.ImageField(upload_to="room_photos")
     room = models.ForeignKey("Room", related_name="photos", on_delete=models.CASCADE)
 
-    def __srt__(self):
+    def __str__(self):
         return self.caption
 
 
