@@ -19,8 +19,7 @@
   @apply text-center rounded-sm py-5 text-lg font-light w-full;
 }
 
-.login input,
-.signup input {
+.login input {
   @apply rounded-sm py-5 text-lg font-light w-full text-left border border-gray-600 px-5;
   &:focus {
     @apply outline-none border-teal-500;
@@ -29,10 +28,10 @@
 
 form {
   .input {
-    @apply mb-3;
+    @apply mb-3 w-full;
     &.has_error {
       input {
-        @apply bg-red-200 border-gray-400;
+        @apply bg-red-200 border-gray-600;
         :focus {
           @apply border-gray-600;
         }
