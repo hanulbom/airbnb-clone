@@ -4,8 +4,9 @@
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "python.formatting.provider": "black",
-  "python.linting.flake8Args": ["--max-line-length=88"],
-  "editor.formatOnSave": true,
+  "python.linting.flake8Args": [
+    "--max-line-length=88"
+  ],
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "terminal.integrated.fontFamily": "'Source Code Pro for Powerline'"
 }
