@@ -17,6 +17,13 @@
 
 .btn {
   @apply text-center rounded-sm py-5 text-lg font-light w-full;
+  &.btn--small {
+    @apply py-3 rounded-lg;
+  }
+}
+
+.btn-link {
+  @apply text-center py-3 rounded-lg text-lg font-light w-full text-white bg-red-500;
 }
 
 .login input {
