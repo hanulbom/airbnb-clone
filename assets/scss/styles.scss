@@ -40,15 +40,8 @@ textarea {
   height: 100px;
 }
 
-selcet {
+select {
   height: 30px;
-}
-
-.grid-img{
-  transition: all 0.2s linear;
-  &:hover {
-    transform: scale(1.2, 1.2);
-  }
 }
 
 form {
@@ -100,8 +93,16 @@ form {
   }
 }
 
+.grid-child{
+  transition: transform 0.5s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
 .border-section {
   @apply border-b border-gray-400 pb-8 mt-8;
 }
+
 
 @tailwind utilities;
