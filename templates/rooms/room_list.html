@@ -6,9 +6,15 @@
 {% endblock page_title %}
 
 {% block content %}
-    <div class="container mx-auto pb-10">        
-        <div class="rounded-xl bg-gray-800 h-50vh mt-32 mb-24 bg-cover bg-center" style="background-image:url(https://a0.muscache.com/4ea/air/v2/pictures/ea6285d9-5352-4447-b13d-b39bfc92dfe5.jpg?t=c:w1131-h343,r:w1131-h343-sfit,e:fjpg-c75)"></div>
-
+    <div class="container mx-auto pb-10 pt-5">
+        
+        {% if user.is_authenticated %}
+            <span class="text-3xl font-bold mt-10">{{user.first_name}}님, 무엇을 찾고 계신가요?</span>
+            <div class="rounded-xl bg-gray-800 h-50vh mt-10 mb-24 bg-cover bg-center" style="background-image:url(https://a0.muscache.com/4ea/air/v2/pictures/ea6285d9-5352-4447-b13d-b39bfc92dfe5.jpg?t=c:w1131-h343,r:w1131-h343-sfit,e:fjpg-c75)"></div>
+        {% else %}
+            <div class="rounded-xl bg-gray-800 h-50vh mt-10 mb-24 bg-cover bg-center" style="background-image:url(https://a0.muscache.com/4ea/air/v2/pictures/ea6285d9-5352-4447-b13d-b39bfc92dfe5.jpg?t=c:w1131-h343,r:w1131-h343-sfit,e:fjpg-c75)"></div>
+        {% endif %}
+                 
         <div class="flex flex-wrap mb-10">
             {% for room in rooms  %}
                 {% include 'mixins/room_card.html' with room=room %}

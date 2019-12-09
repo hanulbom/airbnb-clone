@@ -248,3 +248,11 @@ class UpdatePasswordView(mixins.LoggedInOnlyView, mixins.EmailLoginOnlyView, Suc
 
     def get_success_url(self):
         return self.request.user.get_absolute_url()
+
+@login_required
+def switch_hosting(request):
+    try:
+        del request.session["is_hosting"]
+    except KeyError:
+        request.session["is_hosting"] = True
+    return redirect(reverse("core:home"))
