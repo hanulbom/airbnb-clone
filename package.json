@@ -11,7 +11,7 @@
   },
   "homepage": "https://github.com/hanulbom/airbnb-clone#readme",
   "devDependencies": {
-    "autoprefixer": "^9.7.2",
+    "autoprefixer": "^9.7.3",
     "gulp": "^4.0.2",
     "gulp-csso": "^4.0.1",
     "gulp-postcss": "^8.0.0",
