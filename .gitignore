@@ -128,4 +128,6 @@ dmypy.json
 .DS_Store
 uploads/
 node_modules/
-.vscode/settings.json
+.vscode/
+package-lock.json
+package.json
