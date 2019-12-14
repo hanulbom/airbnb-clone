@@ -5,7 +5,7 @@
 
 
 {% block content %}
-  <div class="-mt-4 container max-w-full h-75vh mb-20 flex ">
+  <div class="-mt-4 container max-w-full h-50vh mb-20 flex ">
     <div class="h-full w-1/2 overflow-hidden">
       <div class="h-full w-full bg-cover bg-center grid-child" style="background-image: url({{room.first_photo}})"></div>
     </div>
@@ -90,8 +90,12 @@
       </div>
       <div class="w-1/3">
         {% if room.host == user %}
-          <a href="{% url 'rooms:edit' room.pk %}" class="btn-link block">Edit Room</a>
-          {% endif %}
+            <a href="{% url 'rooms:edit' room.pk %}" class="btn-link block">Edit Room</a>
+        {% else %}
+            {% if not request.session.is_hosting %}
+                {{room.get_calendars}}
+            {% endif %}
+        {% endif %}
       </div>
   </div>
 
