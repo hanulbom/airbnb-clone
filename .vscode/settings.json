@@ -8,6 +8,5 @@
     "--max-line-length=88"
   ],
   "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
-  "editor.fontSize": 14
+  "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'"
 }
