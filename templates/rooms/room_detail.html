@@ -1,5 +1,5 @@
 {% extends "base.html" %} 
-{% load sexy_capitals %}
+{% load is_booked %}
 
 {% block page_title %} 
 {{room.name}} 
@@ -105,11 +105,14 @@
                         </div>
                         <div class="cal-grid">
                             {% for day in calendar.get_days  %}
+                                {% is_booked room day as is_booked_bool %}
                                 {% if day.number != 0 %}
                                     {% if day.past %}
-                                        <span class="rounded bg-gray-200 w-full text-center p-1 text-gray-300">{{day}}</span>
+                                        <span class="cal-number bg-gray-200 text-gray-400">{{day}}</span>
+                                    {% elif is_booked_bool %}
+                                        <span class="cal-number bg-gray-200 text-gray-400 line-through">{{day}}</span>
                                     {% else %}
-                                        <span class="bg-gray-200 w-full text-center rounded text-gray-700 p-1 hover:bg-teal-400 hover:text-white cursor-pointer">{{day}}</span>
+                                        <span class="cal-number bg-gray-200 text-gray-700 hover:bg-teal-400 hover:text-white hover:font-medium">{{day}}</span>
                                     {% endif %}
                                 {% else %}
                                   <span></span>
