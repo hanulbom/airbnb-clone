@@ -3,6 +3,16 @@ from django.utils import timezone
 from core import models as core_models
 
 
+class BookedDay(core_models.TimeStampedModel):
+    
+    day = models.DateField()
+    reservation = models.ForeignKey("Reservation", on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Booked Day"
+        verbose_name_plural = "Booked Days"
+
+
 class Reservation(core_models.TimeStampedModel):
 
     """ Reservation Model Definition """
@@ -39,3 +49,14 @@ class Reservation(core_models.TimeStampedModel):
         return now > self.check_out
 
     is_finished.boolean = True
+
+    def save(self. *agrs, **kwargs):
+        if True:
+            start = self.check_in
+            end = self.check_out
+            difference = end - start
+            existing_booked_day = BookedDay.objects.filter(day_range=(start, end)).exists()
+            if existing_booked_day == False
+            print(difference)
+        else:
+            return super().save(*args, **kwargs)
