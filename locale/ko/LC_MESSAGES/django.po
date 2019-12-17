@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/base.html:24
 msgid "Search By City"
-msgstr ""
+msgstr "검색"
 
 #: templates/partials/footer.html:4
 msgid "Please don't copy us."
-msgstr ""
+msgstr "복사 노노!"
 
 #: templates/partials/footer.html:6
 msgid "All rights reserved"
