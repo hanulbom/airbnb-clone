@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-18 01:07+0900\n"
+"POT-Creation-Date: 2019-12-18 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,3 +29,80 @@ msgstr "복사 노노!"
 #: templates/partials/footer.html:7
 msgid "All rights reserved"
 msgstr ""
+
+#: templates/partials/nav.html:7
+msgid "Stop hosting"
+msgstr "호스팅 정지"
+
+#: templates/partials/nav.html:9
+msgid "Start hosting"
+msgstr "호스팅 시작"
+
+#: templates/partials/nav.html:14
+msgid "Create Room"
+msgstr "방 생성"
+
+#: templates/partials/nav.html:16
+msgid "Profile"
+msgstr "프로필"
+
+#: templates/partials/nav.html:17
+msgid "Log out"
+msgstr "로그아웃"
+
+#: templates/partials/nav.html:19
+msgid "Log in"
+msgstr "로그인"
+
+#: templates/partials/nav.html:20
+msgid "Sign up"
+msgstr "회원가입"
+
+#: templates/rooms/room_list.html:32
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "페이지 %(current_page)s of %(total_pages)s"
+
+#: users/mixins.py:13
+msgid "Can't go there"
+msgstr "접근 할 수 없습니다"
+
+#: users/models.py:21
+msgid "Male"
+msgstr "남성"
+
+#: users/models.py:22
+msgid "Female"
+msgstr "여성"
+
+#: users/models.py:23
+msgid "Other"
+msgstr "기타"
+
+#: users/models.py:29
+msgid "English"
+msgstr "영어"
+
+#: users/models.py:29
+msgid "Korean"
+msgstr "한글"
+
+#: users/models.py:47
+msgid "gender"
+msgstr "성별"
+
+#: users/models.py:48
+msgid "bio"
+msgstr "상태"
+
+#: users/models.py:49
+msgid "birthdate"
+msgstr "생일"
+
+#: users/models.py:51
+msgid "language"
+msgstr "언어"
+
+#: users/models.py:74
+msgid "Verify Airbnb Account"
+msgstr "에어비앤비 계정 인증"
