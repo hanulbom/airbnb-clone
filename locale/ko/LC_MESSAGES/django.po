@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-18 15:48+0900\n"
+"POT-Creation-Date: 2019-12-18 22:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,10 @@ msgstr "로그인"
 #: templates/partials/nav.html:20
 msgid "Sign up"
 msgstr "회원가입"
+
+#: templates/rooms/room_detail.html:34
+msgid "Save to Favourites"
+msgstr ""
 
 #: templates/rooms/room_list.html:32
 #, python-format
