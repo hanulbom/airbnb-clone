@@ -77,3 +77,5 @@ class Reservation(core_models.TimeStampedModel):
                     BookedDay.objects.create(day=day, reservation=self)
                 return
         return super().save(*args, **kwargs)
+
+    
