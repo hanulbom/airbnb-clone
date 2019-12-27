@@ -10,6 +10,7 @@ urlpatterns = [
         name="create",
     ),
     path("<int:pk>/", views.ReservationDetailView.as_view(), name="detail"),
-    path("res/", views.SeeResView.as_view(), name="see-res"),
+    path("reservations/", views.SeeReservationsView.as_view(), name="see-reservations"),
+    path("host-reservations", views.SeeHostRoomsReservations.as_view(), name="host-reservations"),
     path("<int:pk>/<str:verb>", views.edit_reservation, name="edit"),
 ]
