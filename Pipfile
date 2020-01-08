@@ -14,6 +14,8 @@ django-countries = "*"
 django-seed = "*"
 django-dotenv = "*"
 requests = "*"
+django-storages = "*"
+sentry-sdk = "==0.13.5"
 
 [requires]
 python_version = "3.7"

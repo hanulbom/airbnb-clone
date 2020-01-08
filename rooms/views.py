@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, View, UpdateView, FormVie
 from django.shortcuts import render, redirect, reverse
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import check_password
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from users import mixins as user_mixins
@@ -137,6 +138,33 @@ class EditRoomView(user_mixins.LoggedInOnlyView, UpdateView):
             raise Http404
         return room
 
+class DeleteRoomView(user_mixins.LoggedInOnlyView, DetailView):
+
+    model = models.Room
+    template_name = "rooms/room_delete.html"
+    
+
+@login_required
+def delete_room(request, room_pk):
+    if request.method == "POST":
+        user = request.user
+        room_code= request.POST.get("room_name")
+        try:
+            room = models.Room.objects.get(pk=room_pk)
+            if room.host.pk != user.pk:
+                messages.error(request, "Can't delete that room")
+            else:
+                if room_code == room.name:
+                    models.Room.objects.filter(pk=room_pk).delete()
+                    messages.success(request, "Room Deleted")
+                    return redirect(reverse("core:home"))
+                else:
+                    messages.error(request, "Room name is incorrect")
+                    return redirect(reverse("rooms:delete", kwargs={"pk": room_pk}))
+        except models.Room.DoesNotExist:
+            return redirect(reverse("core:home"))
+
+
 class RoomPhotosView(user_mixins.LoggedInOnlyView, DetailView):
     
     model = models.Room
@@ -174,6 +202,7 @@ class EditPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateVie
     def get_success_url(self):
         room_pk = self.kwargs.get("room_pk")
         return reverse("rooms:photos", kwargs={"pk": room_pk})
+
 
 class AddPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, FormView):
     

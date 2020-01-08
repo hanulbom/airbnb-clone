@@ -19,7 +19,7 @@
     <h3>Results</h3>
 
     {% for room in rooms %}
-        <h3>{{room.name}}</h3>
+        {% include 'mixins/room_card.html' with room=room %}
     {% endfor %}
 
 {% endblock content %}

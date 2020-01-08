@@ -99,7 +99,8 @@
       </div>
       <div class="w-1/3">
         {% if room.host == user %}
-            <a href="{% url 'rooms:edit' room.pk %}" class="btn-link block">Edit Room</a>
+            <a href="{% url 'rooms:edit' room.pk %}" class="btn-link block mb-4 bg-teal-600">Edit Room</a>
+            <a href="{% url 'rooms:delete' room.pk %}" class="btn-link block">Delete Room</a>
         {% else %}
             {% if not request.session.is_hosting %}
                 {% for calendar in room.get_calendars %}

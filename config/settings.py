@@ -20,10 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "@#4fm5k&*20j5bt35d$!!$kjng7+@r5y)321)ucs!0pp$)ggce"
+SECRET_KEY = os.environ.get("DJANGO_SECRET", "THBZRD%E7%j3$hN9Ec$A1hZxs1")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get("DEBUG"))
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -37,7 +39,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["django_countries", "django_seed"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed", "storages"]
 
 PROJECT_APPS = [
     "core.apps.CoreConfig",
@@ -92,6 +94,7 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
+
 
 
 # Password validation
@@ -150,3 +153,5 @@ LOGIN_URL = "/users/login"
 # Locale
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
+
+

@@ -1,6 +1,6 @@
 # Airbnb-clone
 
-cloning Airbnb with Python, Django, Tailwind and more..
+cloning Airbnb with Python, Django, Tailwind and AWS and more..
 
 ## Installation
 
@@ -38,4 +38,10 @@ $ sudo npm install -g npx
 $ npx tailwind init
 $ npm i autoprefixer -D
 $ npm run css
+```
+
+### AWS Elastic Beanstalk
+
+```bash
+$ pipenv install awsebcli --dev
 ```

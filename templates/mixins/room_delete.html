@@ -1,0 +1,17 @@
+<div class="container mx-auto w-full">
+    <div class="container text-red-600">
+        {{error}}
+    </div>
+    <form method="POST" action="{% url 'rooms:delete-room' %}" class="w-full">
+        {% csrf_token %}
+        
+        <div class="w-full container flex flex-col">
+            <div class="w-full flex flex-col">
+                <span class="font-bold">삭제하려면 유저네임 {{user.name}}을 입력하세요.</span>
+                <input name="user_name" type="text">
+            </div>
+            <button class="btn bg-red-500 text-white">{{cta}}</button>
+        </div>
+    </form>
+</div>
+    
